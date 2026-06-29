@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bose Professional | Pro Audio Equipment & Sound Systems</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Barlow+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bp-black:   #000000;
+      --bp-dark:    #111111;
+      --bp-charcoal:#1e1e1e;
+      --bp-gray-d:  #333333;
+      --bp-gray-m:  #555555;
+      --bp-gray:    #888888;
+      --bp-gray-l:  #aaaaaa;
+      --bp-border:  #dddddd;
+      --bp-bg:      #f5f5f5;
+      --bp-white:   #ffffff;
+      --bp-teal:    #007b8a;
+      --bp-teal-l:  #00a3b5;
+      --font-main:  'Barlow', sans-serif;
+      --font-cond:  'Barlow Condensed', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bp-white);
+      color: var(--bp-dark);
+      font-family: var(--font-main);
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── BUTTONS ── */
+    .btn {
+      display: inline-block;
+      font-family: var(--font-main);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 13px 28px;
+      cursor: pointer;
+      border: none;
+      transition: all 0.22s;
+    }
+    .btn-black  { background: var(--bp-black); color: var(--bp-white); }
+    .btn-black:hover { background: #222; }
+    .btn-outline-black { background: transparent; color: var(--bp-black); border: 2px solid var(--bp-black); }
+    .btn-outline-black:hover { background: var(--bp-black); color: var(--bp-white); }
+    .btn-teal   { background: var(--bp-teal); color: var(--bp-white); }
+    .btn-teal:hover { background: var(--bp-teal-l); }
+    .btn-white  { background: var(--bp-white); color: var(--bp-black); }
+    .btn-white:hover { background: #eee; }
+    .btn-outline-white { background: transparent; color: var(--bp-white); border: 2px solid var(--bp-white); }
+    .btn-outline-white:hover { background: rgba(255,255,255,0.12); }
+
+    /* ── UTILITY BAR ── */
+    .util-bar {
+      background: var(--bp-black);
+      padding: 0 48px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .util-bar-links { display: flex; align-items: center; }
+    .util-bar-links a {
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.4px;
+      color: rgba(255,255,255,0.6);
+      padding: 0 14px;
+      border-right: 1px solid rgba(255,255,255,0.1);
+      transition: color 0.18s;
+    }
+    .util-bar-links a:first-child { padding-left: 0; }
+    .util-bar-links a:hover { color: #fff; }
+    .util-bar-right { display: flex; align-items: center; gap: 16px; }
+    .util-bar-right a { font-size: 11px; font-weight: 400; color: rgba(255,255,255,0.5); transition: color 0.18s; }
+    .util-bar-right a:hover { color: #fff; }
+
+    /* ── MAIN NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 900;
+      background: var(--bp-white);
+      border-bottom: 3px solid var(--bp-black);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+    }
+    .nav-inner {
+      max-width: 1400px; margin: 0 auto;
+      padding: 0 48px; height: 68px;
+      display: flex; align-items: center;
+    }
+    .nav-logo { margin-right: 52px; flex-shrink: 0; }
+    .logo-bose {
+      font-family: var(--font-cond);
+      font-size: 29px; font-weight: 700;
+      letter-spacing: 6px; color: var(--bp-black); line-height: 1;
+    }
+    .logo-pro {
+      font-size: 8.5px; font-weight: 600;
+      letter-spacing: 4px; text-transform: uppercase;
+      color: var(--bp-gray-m); margin-top: 1px;
+    }
+    .nav-links { display: flex; align-items: stretch; height: 100%; list-style: none; flex: 1; }
+    .nav-links > li { height: 100%; display: flex; align-items: center; }
+    .nav-links > li > a {
+      display: flex; align-items: center; height: 100%;
+      padding: 0 16px; font-size: 13px; font-weight: 600;
+      letter-spacing: 0.4px; text-transform: uppercase;
+      color: var(--bp-dark); border-bottom: 3px solid transparent;
+      margin-bottom: -3px; white-space: nowrap; transition: all 0.18s;
+    }
+    .nav-links > li > a:hover, .nav-links > li > a.active { border-bottom-color: var(--bp-black); color: var(--bp-black); }
+    .nav-actions { display: flex; align-items: center; gap: 8px; margin-left: auto; }
+    .nav-icon {
+      width: 38px; height: 38px; display: flex; align-items: center; justify-content: center;
+      background: none; border: none; cursor: pointer; font-size: 17px; color: var(--bp-dark); transition: color 0.18s;
+    }
+    .nav-icon:hover { color: var(--bp-black); }
+    .nav-portal {
+      background: var(--bp-black); color: var(--bp-white); border: none;
+      padding: 9px 18px; font-family: var(--font-main); font-size: 11px;
+      font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
+      cursor: pointer; transition: background 0.18s; white-space: nowrap;
+    }
+    .nav-portal:hover { background: #222; }
+
+    /* ── SUBNAV ── */
+    .subnav { background: var(--bp-bg); border-bottom: 1px solid var(--bp-border); }
+    .subnav-inner { max-width: 1400px; margin: 0 auto; padding: 0 48px; display: flex; overflow-x: auto; }
+    .sn {
+      padding: 13px 18px; font-size: 12px; font-weight: 600;
+      letter-spacing: 0.8px; text-transform: uppercase;
+      color: var(--bp-gray-m); border-bottom: 2px solid transparent;
+      cursor: pointer; white-space: nowrap; transition: all 0.18s;
+    }
+    .sn:hover, .sn.active { color: var(--bp-black); border-bottom-color: var(--bp-black); }
+
+    /* ── SECTION HELPERS ── */
+    .wrap { max-width: 1400px; margin: 0 auto; padding: 0 48px; }
+    section { padding: 80px 48px; }
+    .lbl {
+      font-size: 11px; font-weight: 600; letter-spacing: 2.5px;
+      text-transform: uppercase; color: var(--bp-teal);
+      margin-bottom: 10px; display: block;
+    }
+    .sec-title {
+      font-family: var(--font-cond); font-size: clamp(32px, 3.5vw, 52px);
+      font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+      color: var(--bp-black); line-height: 1.05;
+    }
+    .sec-sub {
+      font-size: 14px; font-weight: 300; line-height: 1.75;
+      color: var(--bp-gray-m); margin-top: 12px; max-width: 540px;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative; height: 570px;
+      background: var(--bp-black); display: flex; align-items: center; overflow: hidden;
+    }
+    .hero-grid {
+      position: absolute; inset: 0;
+      background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    .hero-glow { position: absolute; inset: 0; background: radial-gradient(ellipse 65% 75% at 62% 50%, rgba(0,123,138,0.13) 0%, transparent 70%); }
+    .hero-visual { position: absolute; right: 0; top: 0; bottom: 0; width: 52%; display: flex; align-items: center; justify-content: center; }
+    .hero-visual::before { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, var(--bp-black) 0%, transparent 38%); z-index: 1; }
+    .hero-art { position: relative; z-index: 0; opacity: 0.75; }
+    .hero-content { position: relative; z-index: 2; padding: 0 64px; max-width: 620px; }
+    .hero-eyebrow {
+      font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--bp-teal-l); margin-bottom: 16px; opacity: 0; animation: up .65s .1s both;
+    }
+    .hero-h1 {
+      font-family: var(--font-cond); font-size: clamp(44px, 5.5vw, 74px);
+      font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+      color: #fff; line-height: 1; margin-bottom: 20px; opacity: 0; animation: up .65s .25s both;
+    }
+    .hero-h1 span { color: var(--bp-teal-l); }
+    .hero-body {
+      font-size: 14px; font-weight: 300; line-height: 1.75;
+      color: rgba(255,255,255,0.6); max-width: 400px; margin-bottom: 36px;
+      opacity: 0; animation: up .65s .4s both;
+    }
+    .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; opacity: 0; animation: up .65s .55s both; }
+    @keyframes up { from { opacity:0; transform: translateY(22px); } to { opacity:1; transform: translateY(0); } }
+
+    /* ── PRODUCT GRID ── */
+    .products-bg { background: var(--bp-white); }
+    .prod-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 1px; background: var(--bp-border); border: 1px solid var(--bp-border);
+    }
+    .prod-card {
+      background: var(--bp-white); padding: 30px 26px 26px;
+      display: flex; flex-direction: column; cursor: pointer;
+      position: relative; transition: background 0.2s;
+    }
+    .prod-card:hover { background: var(--bp-bg); }
+    .prod-icon { width: 72px; height: 72px; margin-bottom: 18px; }
+    .prod-name {
+      font-family: var(--font-cond); font-size: 19px; font-weight: 700;
+      letter-spacing: 0.4px; text-transform: uppercase; color: var(--bp-black); margin-bottom: 8px;
+    }
+    .prod-desc { font-size: 12px; font-weight: 300; line-height: 1.6; color: var(--bp-gray-m); flex: 1; margin-bottom: 18px; }
+    .prod-link {
+      font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
+      color: var(--bp-black); display: flex; align-items: center; gap: 5px; transition: gap 0.18s;
+    }
+    .prod-card:hover .prod-link { gap: 9px; }
+    .prod-tag {
+      position: absolute; top: 14px; right: 14px;
+      font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+      padding: 3px 7px; background: var(--bp-teal); color: #fff;
+    }
+
+    /* ── FEATURE BAND ── */
+    .feature-band { display: grid; grid-template-columns: 1fr 1fr; min-height: 420px; background: var(--bp-black); }
+    .fb-content { padding: 64px; display: flex; flex-direction: column; justify-content: center; }
+    .fb-title {
+      font-family: var(--font-cond); font-size: clamp(38px, 4vw, 62px);
+      font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+      color: #fff; line-height: 1.05; margin-bottom: 16px;
+    }
+    .fb-title span { color: var(--bp-teal-l); }
+    .fb-sub { font-size: 14px; font-weight: 300; line-height: 1.75; color: rgba(255,255,255,0.55); max-width: 400px; margin-bottom: 30px; }
+    .fb-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; }
+    .chip {
+      padding: 5px 13px; background: rgba(0,163,181,0.1); border: 1px solid rgba(0,163,181,0.28);
+      font-size: 10px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--bp-teal-l);
+    }
+    .fb-visual { display: flex; align-items: center; justify-content: center; background: #0c0c0c; padding: 40px; }
+
+    /* ── MARKETS ── */
+    .markets-bg { background: var(--bp-bg); }
+    .markets-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .mkt-card {
+      background: var(--bp-white); border: 1px solid var(--bp-border);
+      padding: 26px; display: flex; gap: 18px; align-items: flex-start;
+      cursor: pointer; transition: all 0.22s;
+    }
+    .mkt-card:hover { border-color: var(--bp-black); box-shadow: 0 6px 20px rgba(0,0,0,0.07); transform: translateY(-2px); }
+    .mkt-icon { width: 44px; height: 44px; flex-shrink: 0; background: var(--bp-black); display: flex; align-items: center; justify-content: center; font-size: 20px; }
+    .mkt-name { font-family: var(--font-cond); font-size: 17px; font-weight: 700; letter-spacing: 0.4px; text-transform: uppercase; color: var(--bp-black); margin-bottom: 6px; }
+    .mkt-desc { font-size: 12px; font-weight: 300; line-height: 1.6; color: var(--bp-gray-m); }
+
+    /* ── AI ADVISOR ── */
+    .ai-bg { background: var(--bp-white); border-top: 4px solid var(--bp-teal); }
+    .ai-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+    .ai-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 5px 13px; background: rgba(0,123,138,0.07); border: 1px solid rgba(0,123,138,0.22); margin-bottom: 20px;
+    }
+    .ai-dot { width: 7px; height: 7px; background: var(--bp-teal); border-radius: 50%; animation: pulse 2s ease-in-out infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.35;transform:scale(.7)} }
+    .ai-tag-text { font-size: 10px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--bp-teal); }
+    .ai-title {
+      font-family: var(--font-cond); font-size: clamp(36px, 4vw, 56px);
+      font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+      color: var(--bp-black); line-height: 1.05; margin-bottom: 18px;
+    }
+    .ai-title em { font-style: italic; font-family: 'Barlow', serif; color: var(--bp-teal); text-transform: none; font-weight: 500; font-size: .92em; }
+    .ai-body { font-size: 14px; font-weight: 300; line-height: 1.8; color: var(--bp-gray-m); margin-bottom: 30px; }
+    .ai-feats { display: flex; flex-direction: column; gap: 11px; margin-bottom: 34px; }
+    .ai-feat { display: flex; align-items: flex-start; gap: 13px; padding: 13px 15px; background: var(--bp-bg); border-left: 3px solid var(--bp-teal); }
+    .af-icon { font-size: 17px; margin-top: 1px; }
+    .af-strong { font-size: 13px; font-weight: 600; color: var(--bp-black); margin-bottom: 3px; }
+    .af-sub { font-size: 12px; font-weight: 300; color: var(--bp-gray-m); line-height: 1.5; }
+    .ai-ctas { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+    .ai-note { font-size: 11px; color: var(--bp-gray-l); }
+
+    /* Demo window */
+    .demo-win { box-shadow: 0 20px 56px rgba(0,0,0,0.11), 0 2px 8px rgba(0,0,0,0.05); border: 1px solid var(--bp-border); border-radius: 4px; overflow: hidden; }
+    .dw-bar { background: #1a1a1a; padding: 10px 16px; display: flex; align-items: center; gap: 10px; }
+    .dw-dots { display: flex; gap: 5px; }
+    .dw-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .dw-dot:nth-child(1){background:#ff5f57;} .dw-dot:nth-child(2){background:#febc2e;} .dw-dot:nth-child(3){background:#28c840;}
+    .dw-url { flex:1; background: rgba(255,255,255,0.07); border-radius: 3px; padding: 4px 11px; font-size: 11px; color: rgba(255,255,255,.45); display: flex; align-items: center; gap: 5px; }
+    .dw-mini-hdr { background: var(--bp-black); padding: 11px 18px; display: flex; align-items: center; justify-content: space-between; }
+    .dw-mini-logo { font-family: var(--font-cond); font-size: 15px; font-weight: 700; letter-spacing: 3px; color: #fff; }
+    .dw-mini-logo span { font-size: 8px; display: block; letter-spacing: 3px; color: rgba(255,255,255,.35); font-weight: 400; }
+    .dw-mini-links { display: flex; gap: 14px; }
+    .dw-mini-links a { font-size: 9px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: rgba(255,255,255,.45); }
+    .dw-hero-mini { background: linear-gradient(135deg, #111 0%, #1a2a2b 100%); padding: 26px 22px; }
+    .dw-hero-lbl { font-size: 9px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--bp-teal-l); margin-bottom: 6px; }
+    .dw-hero-ttl { font-family: var(--font-cond); font-size: 20px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #fff; margin-bottom: 6px; line-height: 1.1; }
+    .dw-hero-sub { font-size: 10px; color: rgba(255,255,255,.45); line-height: 1.5; margin-bottom: 12px; }
+    .dw-hero-btn { display: inline-block; background: var(--bp-teal); color: #fff; font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 6px 13px; }
+    .dw-chat { background: #f8f8f8; padding: 15px 18px; min-height: 185px; display: flex; flex-direction: column; gap: 9px; }
+    .dw-chat-lbl { font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--bp-gray-l); margin-bottom: 2px; }
+    .dw-msg { max-width: 86%; padding: 8px 11px; font-size: 11px; line-height: 1.5; color: var(--bp-dark); }
+    .dw-msg.bot { background: #fff; border: 1px solid var(--bp-border); border-radius: 0 7px 7px 7px; align-self: flex-start; border-left: 2px solid var(--bp-teal); }
+    .dw-msg.usr { background: var(--bp-black); color: #fff; border-radius: 7px 0 7px 7px; align-self: flex-end; }
+    .dw-typing { display: flex; align-items: center; gap: 4px; padding: 8px 11px; background: #fff; border: 1px solid var(--bp-border); border-left: 2px solid var(--bp-teal); border-radius: 0 7px 7px 7px; align-self: flex-start; }
+    .dt { width: 5px; height: 5px; background: var(--bp-teal); border-radius: 50%; }
+    .dt:nth-child(1){animation:tb 1.2s 0s ease-in-out infinite;} .dt:nth-child(2){animation:tb 1.2s .18s ease-in-out infinite;} .dt:nth-child(3){animation:tb 1.2s .36s ease-in-out infinite;}
+    @keyframes tb { 0%,60%,100%{transform:translateY(0);opacity:.4} 30%{transform:translateY(-5px);opacity:1} }
+
+    /* ── STATS ── */
+    .stats-bg { background: var(--bp-black); padding: 64px 48px; }
+    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(255,255,255,0.07); }
+    .stat-cell { background: var(--bp-black); padding: 36px 28px; text-align: center; }
+    .stat-num { font-family: var(--font-cond); font-size: 54px; font-weight: 700; letter-spacing: 2px; color: #fff; line-height: 1; margin-bottom: 8px; }
+    .stat-num span { color: var(--bp-teal-l); }
+    .stat-lbl { font-size: 11px; font-weight: 400; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,.38); }
+
+    /* ── SUPPORT STRIP ── */
+    .support-strip { background: var(--bp-white); border-top: 1px solid var(--bp-border); border-bottom: 1px solid var(--bp-border); padding: 36px 48px; }
+    .support-inner { max-width: 1400px; margin: 0 auto; display: flex; flex-wrap: wrap; }
+    .sup-item { flex: 1; min-width: 200px; display: flex; align-items: center; gap: 14px; padding: 14px 28px; border-right: 1px solid var(--bp-border); }
+    .sup-item:last-child { border-right: none; }
+    .sup-icon { font-size: 24px; flex-shrink: 0; }
+    .sup-title { font-size: 13px; font-weight: 600; color: var(--bp-black); margin-bottom: 2px; }
+    .sup-sub { font-size: 11px; font-weight: 300; color: var(--bp-gray-m); line-height: 1.4; }
+
+    /* ── FOOTER ── */
+    footer { background: var(--bp-black); padding: 60px 48px 28px; }
+    .foot-inner { max-width: 1400px; margin: 0 auto; }
+    .foot-grid {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 44px;
+      padding-bottom: 44px; border-bottom: 1px solid rgba(255,255,255,0.07); margin-bottom: 28px;
+    }
+    .foot-brand-name { font-family: var(--font-cond); font-size: 26px; font-weight: 700; letter-spacing: 5px; color: #fff; }
+    .foot-brand-sub { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,.28); margin: 2px 0 14px; font-weight: 400; }
+    .foot-brand p { font-size: 12px; font-weight: 300; line-height: 1.7; color: rgba(255,255,255,.36); max-width: 250px; }
+    .foot-col-title { font-size: 10px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(255,255,255,.6); margin-bottom: 16px; }
+    .foot-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .foot-col ul li a { font-size: 12px; font-weight: 300; color: rgba(255,255,255,.36); transition: color .18s; }
+    .foot-col ul li a:hover { color: #fff; }
+    .foot-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; }
+    .foot-legal { font-size: 11px; font-weight: 300; color: rgba(255,255,255,.22); line-height: 1.6; }
+    .foot-social { display: flex; gap: 8px; }
+    .soc { width: 32px; height: 32px; border: 1px solid rgba(255,255,255,.1); display: flex; align-items: center; justify-content: center; font-size: 12px; cursor: pointer; color: rgba(255,255,255,.36); transition: all .18s; text-decoration: none; }
+    .soc:hover { border-color: var(--bp-teal-l); color: #fff; }
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:1080px){
+      .prod-grid { grid-template-columns: repeat(2,1fr); }
+      .markets-grid { grid-template-columns: repeat(2,1fr); }
+      .ai-grid { grid-template-columns: 1fr; gap: 40px; }
+      .feature-band { grid-template-columns: 1fr; }
+      .fb-visual { display: none; }
+      .stats-grid { grid-template-columns: repeat(2,1fr); }
+      .foot-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media(max-width:720px){
+      .util-bar, .nav-inner, section, .stats-bg, .support-strip, footer { padding-left: 20px; padding-right: 20px; }
+      .hero { height: 480px; }
+      .hero-content { padding: 0 24px; }
+      .hero-visual { display: none; }
+      .prod-grid, .markets-grid, .stats-grid, .foot-grid { grid-template-columns: 1fr; }
+      .support-inner { flex-direction: column; }
+      .sup-item { border-right: none; border-bottom: 1px solid var(--bp-border); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── UTILITY BAR ── -->
+  <div class="util-bar">
+    <div class="util-bar-links">
+      <a href="#">Partner Portal</a>
+      <a href="#">Find a Dealer</a>
+      <a href="#">Product Registration</a>
+      <a href="#">Training</a>
+      <a href="#">Contact Us</a>
+    </div>
+    <div class="util-bar-right">
+      <a href="#">India</a>
+      <a href="#">EN</a>
+    </div>
+  </div>
+
+  <!-- ── MAIN NAV ── -->
+  <nav>
+    <div class="nav-inner">
+      <div class="nav-logo">
+        <div class="logo-bose">BOSE</div>
+        <div class="logo-pro">Professional</div>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#" class="active">Products</a></li>
+        <li><a href="#">Solutions</a></li>
+        <li><a href="#">Markets</a></li>
+        <li><a href="#">Resources</a></li>
+        <li><a href="#">Training</a></li>
+        <li><a href="#">Support</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="nav-icon">⌕</button>
+        <button class="nav-portal">Partner Login</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── SUBNAV ── -->
+  <div class="subnav">
+    <div class="subnav-inner">
+      <div class="sn active">Loudspeakers</div>
+      <div class="sn">Portable PA</div>
+      <div class="sn">Power Amplifiers</div>
+      <div class="sn">Processors</div>
+      <div class="sn">Videobars</div>
+      <div class="sn">Controllers</div>
+      <div class="sn">Software</div>
+      <div class="sn">System Packs</div>
+    </div>
+  </div>
+
+  <!-- ── HERO ── -->
+  <div class="hero">
+    <div class="hero-grid"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-visual">
+      <svg class="hero-art" width="480" height="480" viewBox="0 0 480 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="gp" x="0" y="0" width="8" height="8" patternUnits="userSpaceOnUse"><circle cx="4" cy="4" r="1" fill="#222"/></pattern>
+          <linearGradient id="tg" x1="0" y1="0" x2="0" y2="1" gradientUnits="objectBoundingBox">
+            <stop offset="0%" stop-color="#00a3b5" stop-opacity=".9"/>
+            <stop offset="60%" stop-color="#007b8a" stop-opacity=".4"/>
+            <stop offset="100%" stop-color="#007b8a" stop-opacity=".05"/>
+          </linearGradient>
+        </defs>
+        <rect x="160" y="50"  width="130" height="38" rx="3" fill="#1a1a1a" stroke="#252525" stroke-width="1.5"/>
+        <rect x="160" y="92"  width="130" height="38" rx="3" fill="#1a1a1a" stroke="#252525" stroke-width="1.5"/>
+        <rect x="160" y="134" width="130" height="38" rx="3" fill="#1a1a1a" stroke="#252525" stroke-width="1.5"/>
+        <rect x="160" y="176" width="130" height="38" rx="3" fill="#1a1a1a" stroke="#252525" stroke-width="1.5"/>
+        <rect x="160" y="218" width="130" height="38" rx="3" fill="#1a1a1a" stroke="#252525" stroke-width="1.5"/>
+        <rect x="160" y="260" width="130" height="38" rx="3" fill="#1a1a1a" stroke="#252525" stroke-width="1.5"/>
+        <rect x="164" y="54"  width="122" height="30" fill="#111"/>
+        <rect x="164" y="96"  width="122" height="30" fill="#111"/>
+        <rect x="164" y="138" width="122" height="30" fill="#111"/>
+        <rect x="164" y="180" width="122" height="30" fill="#111"/>
+        <rect x="164" y="222" width="122" height="30" fill="#111"/>
+        <rect x="164" y="264" width="122" height="30" fill="#111"/>
+        <rect x="164" y="54"  width="122" height="30" fill="url(#gp)"/>
+        <rect x="164" y="96"  width="122" height="30" fill="url(#gp)"/>
+        <rect x="164" y="138" width="122" height="30" fill="url(#gp)"/>
+        <rect x="164" y="180" width="122" height="30" fill="url(#gp)"/>
+        <rect x="164" y="222" width="122" height="30" fill="url(#gp)"/>
+        <rect x="164" y="264" width="122" height="30" fill="url(#gp)"/>
+        <line x1="160" y1="50" x2="160" y2="298" stroke="url(#tg)" stroke-width="2.5"/>
+        <path d="M290 69 Q355 169 290 269" stroke="#00a3b5" stroke-width="1.5" opacity=".28" fill="none"/>
+        <path d="M290 69 Q390 169 290 269" stroke="#007b8a" stroke-width=".8" opacity=".12" fill="none" stroke-dasharray="4 6"/>
+        <rect x="100" y="318" width="250" height="72" rx="3" fill="#141414" stroke="#222" stroke-width="1.5"/>
+        <rect x="108" y="326" width="234" height="56" rx="2" fill="#0e0e0e"/>
+        <circle cx="225" cy="354" r="20" fill="#0a0a0a" stroke="#1a1a1a" stroke-width="1.5"/>
+        <circle cx="225" cy="354" r="12" fill="#080808" stroke="#222"/>
+        <circle cx="225" cy="354" r="4" fill="#111"/>
+        <rect x="108" y="326" width="234" height="56" fill="url(#gp)" opacity=".4"/>
+        <line x1="100" y1="318" x2="100" y2="390" stroke="#007b8a" stroke-width="2" opacity=".45"/>
+        <text x="170" y="68" font-family="Arial" font-size="6.5" font-weight="700" fill="#3a3a3a" letter-spacing="2.5">BOSE</text>
+        <text x="157" y="77" font-family="Arial" font-size="5" fill="#2e2e2e" letter-spacing="2">PROFESSIONAL</text>
+      </svg>
+    </div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">ShowMatch Series · 2025</div>
+      <h1 class="hero-h1">ENGINEERED<br>FOR<br><span>EVERY VENUE</span></h1>
+      <p class="hero-body">From intimate boardrooms to 50,000-seat arenas — Bose Professional systems deliver consistent, intelligible sound backed by 75 years of acoustic research.</p>
+      <div class="hero-ctas">
+        <a href="#" class="btn btn-white">Explore Products</a>
+        <a href="#ai-section" class="btn btn-outline-white">AI Advisor ↓</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── PRODUCTS ── -->
+  <section class="products-bg">
+    <div class="wrap">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:44px;flex-wrap:wrap;gap:16px;">
+        <div>
+          <span class="lbl">Product Portfolio</span>
+          <h2 class="sec-title">COMPLETE PRO<br>AUDIO SOLUTIONS</h2>
+        </div>
+        <a href="#" class="btn btn-outline-black" style="white-space:nowrap;">View All Products →</a>
+      </div>
+      <div class="prod-grid">
+        <div class="prod-card">
+          <div class="prod-tag">Featured</div>
+          <div class="prod-icon">
+            <svg viewBox="0 0 72 72" fill="none"><rect x="14" y="8" width="44" height="11" rx="2" fill="#d0d0d0" stroke="#bbb" stroke-width="1"/><rect x="14" y="23" width="44" height="11" rx="2" fill="#d0d0d0" stroke="#bbb" stroke-width="1"/><rect x="14" y="38" width="44" height="11" rx="2" fill="#d0d0d0" stroke="#bbb" stroke-width="1"/><line x1="14" y1="8" x2="14" y2="49" stroke="#007b8a" stroke-width="2"/><circle cx="58" cy="58" r="9" fill="#e0e0e0" stroke="#007b8a" stroke-width="1.5"/><circle cx="58" cy="58" r="4" fill="#ccc"/></svg>
+          </div>
+          <div class="prod-name">Loudspeakers</div>
+          <div class="prod-desc">Ceiling, surface, pendant, arrayable and landscape systems. From DesignMax to ShowMatch line arrays for large venues.</div>
+          <div class="prod-link">Browse Loudspeakers →</div>
+        </div>
+        <div class="prod-card">
+          <div class="prod-icon">
+            <svg viewBox="0 0 72 72" fill="none"><ellipse cx="36" cy="54" rx="20" ry="11" fill="#d0d0d0" stroke="#bbb" stroke-width="1"/><ellipse cx="36" cy="54" rx="13" ry="7" fill="#c0c0c0" stroke="#aaa" stroke-width="1"/><path d="M22 24 L36 54 L50 24" stroke="#007b8a" stroke-width="1.5" fill="none" stroke-dasharray="3 3"/><line x1="36" y1="9" x2="36" y2="24" stroke="#bbb" stroke-width="2"/><circle cx="36" cy="9" r="5" fill="#d0d0d0" stroke="#bbb" stroke-width="1"/></svg>
+          </div>
+          <div class="prod-name">Portable PA</div>
+          <div class="prod-desc">L1, F1 and S1 systems for performers and presenters. Exceptional 180° coverage, plug-and-play simplicity.</div>
+          <div class="prod-link">Browse Portable PA →</div>
+        </div>
+        <div class="prod-card">
+          <div class="prod-icon">
+            <svg viewBox="0 0 72 72" fill="none"><rect x="8" y="18" width="56" height="36" rx="3" fill="#d8d8d8" stroke="#bbb" stroke-width="1.5"/><rect x="14" y="24" width="18" height="24" rx="2" fill="#c5c5c5"/><rect x="36" y="24" width="22" height="10" rx="2" fill="#c5c5c5"/><circle cx="47" cy="44" r="7" fill="#b8b8b8" stroke="#007b8a" stroke-width="1.5"/><circle cx="47" cy="44" r="3" fill="#aaa"/></svg>
+          </div>
+          <div class="prod-name">Power Amplifiers</div>
+          <div class="prod-desc">PowerShare, PowerMatch and PowerSpace platforms with integrated DSP for any load configuration.</div>
+          <div class="prod-link">Browse Amplifiers →</div>
+        </div>
+        <div class="prod-card">
+          <div class="prod-icon">
+            <svg viewBox="0 0 72 72" fill="none"><rect x="10" y="16" width="52" height="40" rx="3" fill="#d8d8d8" stroke="#bbb" stroke-width="1.5"/><rect x="16" y="22" width="14" height="14" rx="2" fill="#c2c2c2"/><rect x="34" y="22" width="22" height="5" rx="1" fill="#c2c2c2"/><rect x="34" y="31" width="22" height="5" rx="1" fill="#c2c2c2"/><circle cx="38" cy="46" r="4" fill="#007b8a" opacity=".8"/><circle cx="48" cy="46" r="4" fill="#007b8a" opacity=".45"/><circle cx="58" cy="46" r="4" fill="#007b8a" opacity=".2"/></svg>
+          </div>
+          <div class="prod-name">Processors</div>
+          <div class="prod-desc">ControlSpace EX and CSP digital signal processors. Open architecture for complex conferencing environments.</div>
+          <div class="prod-link">Browse Processors →</div>
+        </div>
+        <div class="prod-card">
+          <div class="prod-tag">AI-Ready</div>
+          <div class="prod-icon">
+            <svg viewBox="0 0 72 72" fill="none"><rect x="10" y="20" width="52" height="32" rx="4" fill="#d8d8d8" stroke="#bbb" stroke-width="1.5"/><rect x="16" y="26" width="26" height="20" rx="2" fill="#c2c2c2"/><circle cx="55" cy="36" r="7" fill="#b8b8b8" stroke="#007b8a" stroke-width="1.5"/><circle cx="55" cy="36" r="3" fill="#aaa"/><line x1="18" y1="52" x2="28" y2="60" stroke="#bbb" stroke-width="2"/><line x1="54" y1="52" x2="54" y2="60" stroke="#bbb" stroke-width="2"/><line x1="22" y1="60" x2="50" y2="60" stroke="#c0c0c0" stroke-width="2.5"/></svg>
+          </div>
+          <div class="prod-name">Videobars</div>
+          <div class="prod-desc">VB1 and VB-S series for hybrid meetings and video conferencing. 4K optics, beamforming microphone arrays.</div>
+          <div class="prod-link">Browse Videobars →</div>
+        </div>
+        <div class="prod-card">
+          <div class="prod-icon">
+            <svg viewBox="0 0 72 72" fill="none"><rect x="18" y="14" width="36" height="22" rx="3" fill="#d8d8d8" stroke="#bbb" stroke-width="1.5"/><rect x="22" y="18" width="28" height="14" rx="2" fill="#c2c2c2"/><rect x="8" y="40" width="56" height="18" rx="3" fill="#d8d8d8" stroke="#bbb" stroke-width="1.5"/><line x1="36" y1="36" x2="36" y2="40" stroke="#bbb" stroke-width="2.5"/><circle cx="22" cy="49" r="4" fill="#007b8a" opacity=".7"/><circle cx="36" cy="49" r="4" fill="#007b8a" opacity=".7"/><circle cx="50" cy="49" r="4" fill="#007b8a" opacity=".7"/></svg>
+          </div>
+          <div class="prod-name">Controllers</div>
+          <div class="prod-desc">CC-16, CC-64 digital and analog control surfaces with full ControlSpace Designer integration.</div>
+          <div class="prod-link">Browse Controllers →</div>
+        </div>
+        <div class="prod-card">
+          <div class="prod-icon">
+            <svg viewBox="0 0 72 72" fill="none"><rect x="16" y="10" width="40" height="52" rx="3" fill="#d8d8d8" stroke="#bbb" stroke-width="1.5"/><rect x="20" y="18" width="32" height="5" rx="1" fill="#c0c0c0"/><rect x="20" y="27" width="32" height="5" rx="1" fill="#c0c0c0"/><rect x="20" y="36" width="20" height="5" rx="1" fill="#007b8a" opacity=".5"/><circle cx="52" cy="44" r="9" fill="#c8c8c8" stroke="#007b8a" stroke-width="1.5"/><path d="M49 44 L51 46 L55 41" stroke="#007b8a" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+          </div>
+          <div class="prod-name">Software</div>
+          <div class="prod-desc">ControlSpace Designer, Modeler, MSA Design Tool. Complete design-to-deployment ecosystem.</div>
+          <div class="prod-link">Browse Software →</div>
+        </div>
+        <div class="prod-card">
+          <div class="prod-icon">
+            <svg viewBox="0 0 72 72" fill="none"><rect x="10" y="22" width="20" height="28" rx="2" fill="#d0d0d0" stroke="#bbb" stroke-width="1.5"/><rect x="34" y="16" width="28" height="36" rx="2" fill="#d0d0d0" stroke="#bbb" stroke-width="1.5"/><rect x="12" y="26" width="16" height="20" rx="1" fill="#c0c0c0"/><rect x="36" y="20" width="24" height="28" rx="1" fill="#c0c0c0"/><line x1="30" y1="36" x2="34" y2="36" stroke="#007b8a" stroke-width="2"/></svg>
+          </div>
+          <div class="prod-name">System Packs</div>
+          <div class="prod-desc">Pre-configured bundles optimised for specific venue types — faster specification, guaranteed compatibility.</div>
+          <div class="prod-link">Browse System Packs →</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FEATURE BAND ── -->
+  <div class="feature-band">
+    <div class="fb-content">
+      <span class="lbl" style="color:var(--bp-teal-l);">New Release · 2025</span>
+      <h2 class="fb-title">SHOWMATCH<br><span>DM SERIES</span></h2>
+      <p class="fb-sub">Next-generation digitally steerable line arrays. Adaptive beamforming, IP54-rated weatherproofing, and direct-attach subwoofer integration. Configure any venue in minutes, not days.</p>
+      <div class="fb-chips">
+        <div class="chip">140° Coverage</div>
+        <div class="chip">IP54 Rated</div>
+        <div class="chip">DSP Integrated</div>
+        <div class="chip">Dante / AES67</div>
+      </div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;">
+        <a href="#" class="btn btn-teal">View Specifications</a>
+        <a href="#" class="btn btn-outline-white">Download Datasheet</a>
+      </div>
+    </div>
+    <div class="fb-visual">
+      <svg width="280" height="340" viewBox="0 0 280 340" fill="none">
+        <defs>
+          <pattern id="gp2" x="0" y="0" width="8" height="8" patternUnits="userSpaceOnUse"><circle cx="4" cy="4" r="0.9" fill="#2a2a2a"/></pattern>
+          <linearGradient id="tg2" x1="0" y1="0" x2="0" y2="1" gradientUnits="objectBoundingBox">
+            <stop offset="0%" stop-color="#00a3b5" stop-opacity=".85"/>
+            <stop offset="100%" stop-color="#007b8a" stop-opacity=".1"/>
+          </linearGradient>
+        </defs>
+        <rect x="80" y="15"  width="120" height="34" rx="2.5" fill="#1a1a1a" stroke="#242424" stroke-width="1.5"/>
+        <rect x="80" y="53"  width="120" height="34" rx="2.5" fill="#1a1a1a" stroke="#242424" stroke-width="1.5"/>
+        <rect x="80" y="91"  width="120" height="34" rx="2.5" fill="#1a1a1a" stroke="#242424" stroke-width="1.5"/>
+        <rect x="80" y="129" width="120" height="34" rx="2.5" fill="#1a1a1a" stroke="#242424" stroke-width="1.5"/>
+        <rect x="80" y="167" width="120" height="34" rx="2.5" fill="#1a1a1a" stroke="#242424" stroke-width="1.5"/>
+        <rect x="80" y="205" width="120" height="34" rx="2.5" fill="#1a1a1a" stroke="#242424" stroke-width="1.5"/>
+        <rect x="83" y="18" width="114" height="28" fill="#0e0e0e"/><rect x="83" y="56" width="114" height="28" fill="#0e0e0e"/>
+        <rect x="83" y="94" width="114" height="28" fill="#0e0e0e"/><rect x="83" y="132" width="114" height="28" fill="#0e0e0e"/>
+        <rect x="83" y="170" width="114" height="28" fill="#0e0e0e"/><rect x="83" y="208" width="114" height="28" fill="#0e0e0e"/>
+        <rect x="83" y="18" width="114" height="28" fill="url(#gp2)"/><rect x="83" y="56" width="114" height="28" fill="url(#gp2)"/>
+        <rect x="83" y="94" width="114" height="28" fill="url(#gp2)"/><rect x="83" y="132" width="114" height="28" fill="url(#gp2)"/>
+        <rect x="83" y="170" width="114" height="28" fill="url(#gp2)"/><rect x="83" y="208" width="114" height="28" fill="url(#gp2)"/>
+        <line x1="80" y1="15" x2="80" y2="239" stroke="url(#tg2)" stroke-width="2.5"/>
+        <path d="M200 32 Q255 132 200 232" stroke="#00a3b5" stroke-width="1.2" opacity=".25" fill="none"/>
+        <rect x="44" y="258" width="192" height="62" rx="3" fill="#141414" stroke="#1e1e1e" stroke-width="1.5"/>
+        <circle cx="140" cy="289" r="19" fill="#0a0a0a" stroke="#181818" stroke-width="1.5"/>
+        <circle cx="140" cy="289" r="11" fill="#080808" stroke="#1e1e1e"/>
+        <circle cx="140" cy="289" r="4" fill="#111"/>
+        <rect x="48" y="261" width="184" height="55" fill="url(#gp2)" opacity=".35"/>
+        <line x1="44" y1="258" x2="44" y2="320" stroke="#007b8a" stroke-width="2" opacity=".4"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ── MARKETS ── -->
+  <section class="markets-bg">
+    <div class="wrap">
+      <div style="margin-bottom:44px;">
+        <span class="lbl">Proven Across Industries</span>
+        <h2 class="sec-title">MARKETS WE SERVE</h2>
+        <p class="sec-sub">Bose Professional systems are deployed in over 180 countries across every professional audio application.</p>
+      </div>
+      <div class="markets-grid">
+        <div class="mkt-card"><div class="mkt-icon">🏢</div><div><div class="mkt-name">Corporate</div><div class="mkt-desc">Boardrooms, open-plan offices, executive suites. Intelligible speech reinforcement and seamless AV integration.</div></div></div>
+        <div class="mkt-card"><div class="mkt-icon">🏥</div><div><div class="mkt-name">Healthcare</div><div class="mkt-desc">Hospitals, clinics, waiting areas. Background music and emergency paging that meets strict regulatory standards.</div></div></div>
+        <div class="mkt-card"><div class="mkt-icon">🏟️</div><div><div class="mkt-name">Sports & Entertainment</div><div class="mkt-desc">Stadiums, arenas and multipurpose venues. ShowMatch line arrays deliver intelligible sound to every seat.</div></div></div>
+        <div class="mkt-card"><div class="mkt-icon">🏨</div><div><div class="mkt-name">Hospitality</div><div class="mkt-desc">Hotels, restaurants, bars and event spaces. Immersive audio that elevates every guest experience.</div></div></div>
+        <div class="mkt-card"><div class="mkt-icon">📚</div><div><div class="mkt-name">Education</div><div class="mkt-desc">Lecture halls, classrooms and auditoriums. Even speech coverage that supports learning outcomes.</div></div></div>
+        <div class="mkt-card"><div class="mkt-icon">⛪</div><div><div class="mkt-name">Houses of Worship</div><div class="mkt-desc">Sanctuaries and multipurpose halls. DesignMax and FreeSpace systems blend into any architecture.</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── AI ADVISOR ── -->
+  <section class="ai-bg" id="ai-section">
+    <div class="wrap">
+      <div class="ai-grid">
+        <div>
+          <div class="ai-tag">
+            <div class="ai-dot"></div>
+            <span class="ai-tag-text">AI Product Advisor · Live</span>
+          </div>
+          <h2 class="ai-title">MEET YOUR<br><em>Intelligent</em><br>PRODUCT ADVISOR</h2>
+          <p class="ai-body">Specifying a complex audio system shouldn't require a 3-week RFP cycle. Our AI advisor gives dealers, AV consultants and end clients instant, expert-level guidance on product selection, system design and ROI justification.</p>
+          <div class="ai-feats">
+            <div class="ai-feat"><div class="af-icon">🏗️</div><div><div class="af-strong">System Specification Assistance</div><div class="af-sub">Describe your venue — capacity, ceiling height, use case — and get a recommended system with part numbers instantly.</div></div></div>
+            <div class="ai-feat"><div class="af-icon">📋</div><div><div class="af-strong">Technical Documentation On Demand</div><div class="af-sub">Instantly access datasheets, wiring diagrams and ControlSpace Designer templates for any product.</div></div></div>
+            <div class="ai-feat"><div class="af-icon">🌐</div><div><div class="af-strong">Multilingual Support for India</div><div class="af-sub">Hindi, Tamil, Telugu, Marathi, Kannada and English — reach dealers in their preferred language.</div></div></div>
+            <div class="ai-feat"><div class="af-icon">⚡</div><div><div class="af-strong">Available 24 / 7</div><div class="af-sub">Instant responses across time zones — no hold music, no waiting for a callback.</div></div></div>
+          </div>
+          <div class="ai-ctas">
+            <button class="btn btn-teal">💬 Start AI Consultation</button>
+            <button class="btn btn-outline-black">View Demo</button>
+          </div>
+          <p class="ai-note" style="margin-top:12px;">No login required · Instant response · Enterprise-grade security</p>
+        </div>
+        <div>
+          <div class="demo-win">
+            <div class="dw-bar">
+              <div class="dw-dots"><div class="dw-dot"></div><div class="dw-dot"></div><div class="dw-dot"></div></div>
+              <div class="dw-url">🔒 boseprofessional.com · AI Product Advisor</div>
+            </div>
+            <div class="dw-mini-hdr">
+              <div class="dw-mini-logo">BOSE <span>PROFESSIONAL</span></div>
+              <div class="dw-mini-links"><a href="#">Products</a><a href="#">Support</a><a href="#">AI Advisor</a></div>
+            </div>
+            <div class="dw-hero-mini">
+              <div class="dw-hero-lbl">AI Product Advisor · Active</div>
+              <div class="dw-hero-ttl">INTELLIGENT<br>SYSTEM DESIGN</div>
+              <div class="dw-hero-sub">Tell us your venue requirements. Get an expert system recommendation instantly.</div>
+              <div class="dw-hero-btn">Start Consultation →</div>
+            </div>
+            <div class="dw-chat">
+              <div class="dw-chat-lbl">Live Conversation</div>
+              <div class="dw-msg bot">Hello! I'm your Bose Professional system advisor. What type of venue are you specifying today?</div>
+              <div class="dw-msg usr">500-seat conference centre — presentations and live events.</div>
+              <div class="dw-msg bot">For that venue I'd recommend a <strong>ShowMatch DM array</strong> for main coverage with <strong>DesignMax ceiling fills</strong> under the balcony, driven by a <strong>PowerMatch PM8500N</strong>. Want me to generate a full spec sheet?</div>
+              <div class="dw-typing"><div class="dt"></div><div class="dt"></div><div class="dt"></div></div>
+            </div>
+          </div>
+          <p style="font-size:11px;color:var(--bp-gray-l);text-align:right;margin-top:9px;">Chat widget is live — bottom right corner ↘</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── STATS ── -->
+  <div class="stats-bg">
+    <div class="wrap">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:44px;flex-wrap:wrap;gap:16px;">
+        <div>
+          <span class="lbl" style="color:var(--bp-teal-l);">Global Presence</span>
+          <h2 class="sec-title" style="color:#fff;">75 YEARS OF<br>ACOUSTIC INNOVATION</h2>
+        </div>
+        <a href="#" class="btn btn-teal">Partner With Us</a>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-cell"><div class="stat-num">75<span>+</span></div><div class="stat-lbl">Years of Research</div></div>
+        <div class="stat-cell"><div class="stat-num">180<span>+</span></div><div class="stat-lbl">Countries Deployed</div></div>
+        <div class="stat-cell"><div class="stat-num">12<span>K</span></div><div class="stat-lbl">Research Patents</div></div>
+        <div class="stat-cell"><div class="stat-num">250<span>+</span></div><div class="stat-lbl">Authorised Partners in India</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SUPPORT STRIP ── -->
+  <div class="support-strip">
+    <div class="support-inner">
+      <div class="sup-item"><div class="sup-icon">📞</div><div><div class="sup-title">Technical Support</div><div class="sup-sub">1800 209 2673<br>Mon – Fri, 9am – 6pm IST</div></div></div>
+      <div class="sup-item"><div class="sup-icon">💬</div><div><div class="sup-title">AI Advisor</div><div class="sup-sub">Available 24 / 7<br>Instant answers, 6 languages</div></div></div>
+      <div class="sup-item"><div class="sup-icon">🎓</div><div><div class="sup-title">Bose Pro Training</div><div class="sup-sub">Online certification<br>programmes for dealers</div></div></div>
+      <div class="sup-item"><div class="sup-icon">📍</div><div><div class="sup-title">Find a Dealer</div><div class="sup-sub">250+ authorised partners<br>across India</div></div></div>
+    </div>
+  </div>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="foot-inner">
+      <div class="foot-grid">
+        <div class="foot-brand">
+          <div class="foot-brand-name">BOSE</div>
+          <div class="foot-brand-sub">Professional</div>
+          <p>Pro audio equipment and sound systems engineered for demanding applications worldwide. Better sound through research — since 1964.</p>
+        </div>
+        <div class="foot-col">
+          <div class="foot-col-title">Products</div>
+          <ul><li><a href="#">Loudspeakers</a></li><li><a href="#">Portable PA</a></li><li><a href="#">Power Amplifiers</a></li><li><a href="#">Processors</a></li><li><a href="#">Videobars</a></li><li><a href="#">Software</a></li></ul>
+        </div>
+        <div class="foot-col">
+          <div class="foot-col-title">Markets</div>
+          <ul><li><a href="#">Corporate</a></li><li><a href="#">Healthcare</a></li><li><a href="#">Education</a></li><li><a href="#">Hospitality</a></li><li><a href="#">Sports Venues</a></li><li><a href="#">Houses of Worship</a></li></ul>
+        </div>
+        <div class="foot-col">
+          <div class="foot-col-title">Resources</div>
+          <ul><li><a href="#">Partner Portal</a></li><li><a href="#">Training Centre</a></li><li><a href="#">Download Library</a></li><li><a href="#">Case Studies</a></li><li><a href="#">Design Software</a></li></ul>
+        </div>
+        <div class="foot-col">
+          <div class="foot-col-title">Support</div>
+          <ul><li><a href="#">Contact Support</a></li><li><a href="#">Product Registration</a></li><li><a href="#">Find a Dealer</a></li><li><a href="#">Service Centres</a></li><li><a href="#">AI Advisor</a></li></ul>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <div class="foot-legal">© 2025 Bose Corporation. All rights reserved. &nbsp;·&nbsp; Privacy Policy &nbsp;·&nbsp; Terms of Use &nbsp;·&nbsp; Cookie Settings</div>
+        <div class="foot-social">
+          <a href="#" class="soc">in</a>
+          <a href="#" class="soc">𝕏</a>
+          <a href="#" class="soc">▶</a>
+          <a href="#" class="soc">f</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ── LIVE AVATAR WIDGET ── -->
+  <style>
+    /* Launcher button */
+    #av-launcher {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 9000;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--bp-black);
+      border: 2px solid var(--bp-teal);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.28), 0 0 0 0 rgba(0,163,181,0.4);
+      transition: transform 0.22s, box-shadow 0.22s;
+      animation: ringPulse 3s ease-in-out infinite;
+    }
+    #av-launcher:hover {
+      transform: scale(1.08);
+      box-shadow: 0 12px 36px rgba(0,0,0,0.35), 0 0 0 8px rgba(0,163,181,0.12);
+      animation: none;
+    }
+    @keyframes ringPulse {
+      0%,100% { box-shadow: 0 8px 28px rgba(0,0,0,0.28), 0 0 0 0 rgba(0,163,181,0.45); }
+      50%      { box-shadow: 0 8px 28px rgba(0,0,0,0.28), 0 0 0 10px rgba(0,163,181,0); }
+    }
+    #av-launcher svg { width: 28px; height: 28px; }
+    #av-launcher .av-close-icon { display: none; }
+    #av-launcher.open .av-open-icon  { display: none; }
+    #av-launcher.open .av-close-icon { display: block; }
+
+    /* Tooltip label */
+    #av-tooltip {
+      position: fixed;
+      bottom: 34px;
+      right: 104px;
+      z-index: 8999;
+      background: var(--bp-black);
+      color: #fff;
+      font-family: var(--font-main);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 8px 14px;
+      white-space: nowrap;
+      pointer-events: none;
+      opacity: 1;
+      transition: opacity 0.3s;
+    }
+    #av-tooltip::after {
+      content: '';
+      position: absolute;
+      right: -6px;
+      top: 50%;
+      transform: translateY(-50%);
+      border: 6px solid transparent;
+      border-right: none;
+      border-left-color: var(--bp-black);
+    }
+    #av-tooltip.hidden { opacity: 0; }
+
+    /* Avatar panel */
+    #av-panel {
+      position: fixed;
+      bottom: 104px;
+      right: 28px;
+      z-index: 8998;
+      width: 300px;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.28), 0 4px 16px rgba(0,0,0,0.14);
+      border: 1px solid rgba(0,163,181,0.3);
+      transform: scale(0.88) translateY(24px);
+      transform-origin: bottom right;
+      opacity: 0;
+      pointer-events: none;
+      transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), opacity 0.25s ease;
+    }
+    #av-panel.open {
+      transform: scale(1) translateY(0);
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    /* Panel header bar */
+    .av-header {
+      background: var(--bp-black);
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(0,163,181,0.2);
+    }
+    .av-header-left {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+    .av-status-dot {
+      width: 7px; height: 7px;
+      background: #00e5a0;
+      border-radius: 50%;
+      animation: ringPulse 2s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+    .av-header-label {
+      font-family: var(--font-cond);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #fff;
+    }
+    .av-header-sub {
+      font-size: 9px;
+      font-weight: 400;
+      letter-spacing: 1px;
+      color: rgba(255,255,255,0.4);
+      margin-top: 1px;
+    }
+    .av-close-btn {
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.45);
+      cursor: pointer;
+      font-size: 16px;
+      line-height: 1;
+      padding: 2px 4px;
+      transition: color 0.18s;
+    }
+    .av-close-btn:hover { color: #fff; }
+
+    /* The iframe wrapper — enforces 9:16 */
+    .av-iframe-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 9 / 16;
+      background: #000;
+      overflow: hidden;
+    }
+    .av-iframe-wrap iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+  </style>
+
+  <!-- Tooltip -->
+  <div id="av-tooltip">Talk to AI Advisor</div>
+
+  <!-- Launcher button -->
+  <button id="av-launcher" aria-label="Open AI Advisor" onclick="toggleAvatar()">
+    <!-- Open icon: microphone/avatar -->
+    <svg class="av-open-icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="14" cy="10" r="5" fill="none" stroke="#00a3b5" stroke-width="1.8"/>
+      <path d="M6 24c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="#00a3b5" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+      <circle cx="14" cy="10" r="2.5" fill="#00a3b5"/>
+    </svg>
+    <!-- Close icon: × -->
+    <svg class="av-close-icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="8" y1="8" x2="20" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+      <line x1="20" y1="8" x2="8" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+  </button>
+
+  <!-- Avatar panel -->
+  <div id="av-panel">
+    <div class="av-header">
+      <div class="av-header-left">
+        <div class="av-status-dot"></div>
+        <div>
+          <div class="av-header-label">Bose AI Advisor</div>
+          <div class="av-header-sub">Live · Ask me anything</div>
+        </div>
+      </div>
+      <button class="av-close-btn" onclick="toggleAvatar()" aria-label="Close">✕</button>
+    </div>
+    <div class="av-iframe-wrap">
+      <iframe
+        src="https://embed.liveavatar.com/v1/7204a3c1-0a33-4aed-9335-f0b2c1581ea6?orientation=vertical"
+        allow="microphone"
+        title="Bose Professional AI Advisor"
+      ></iframe>
+    </div>
+  </div>
+
+  <script>
+    var avOpen = false;
+    var tooltipHidden = false;
+
+    function toggleAvatar() {
+      avOpen = !avOpen;
+      document.getElementById('av-panel').classList.toggle('open', avOpen);
+      document.getElementById('av-launcher').classList.toggle('open', avOpen);
+      // Hide tooltip once interacted
+      if (!tooltipHidden) {
+        document.getElementById('av-tooltip').classList.add('hidden');
+        tooltipHidden = true;
+      }
+    }
+
+    // Auto-hide tooltip after 5s
+    setTimeout(function() {
+      if (!tooltipHidden) {
+        document.getElementById('av-tooltip').classList.add('hidden');
+        tooltipHidden = true;
+      }
+    }, 5000);
+  </script>
+
+</body>
+</html>
