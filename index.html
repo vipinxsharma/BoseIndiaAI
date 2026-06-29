@@ -742,8 +742,223 @@
     </div>
   </footer>
 
-  <!-- ── WIDGET ── -->
-  <script src="https://thynkbot.thynkwise.co.in/embed.js" data-bot-id="75305cb1-a4a5-4445-b55a-2ea881b06df9"></script>
+  <!-- ── LIVE AVATAR WIDGET ── -->
+  <style>
+    /* Launcher button */
+    #av-launcher {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 9000;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--bp-black);
+      border: 2px solid var(--bp-teal);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.28), 0 0 0 0 rgba(0,163,181,0.4);
+      transition: transform 0.22s, box-shadow 0.22s;
+      animation: ringPulse 3s ease-in-out infinite;
+    }
+    #av-launcher:hover {
+      transform: scale(1.08);
+      box-shadow: 0 12px 36px rgba(0,0,0,0.35), 0 0 0 8px rgba(0,163,181,0.12);
+      animation: none;
+    }
+    @keyframes ringPulse {
+      0%,100% { box-shadow: 0 8px 28px rgba(0,0,0,0.28), 0 0 0 0 rgba(0,163,181,0.45); }
+      50%      { box-shadow: 0 8px 28px rgba(0,0,0,0.28), 0 0 0 10px rgba(0,163,181,0); }
+    }
+    #av-launcher svg { width: 28px; height: 28px; }
+    #av-launcher .av-close-icon { display: none; }
+    #av-launcher.open .av-open-icon  { display: none; }
+    #av-launcher.open .av-close-icon { display: block; }
+
+    /* Tooltip label */
+    #av-tooltip {
+      position: fixed;
+      bottom: 34px;
+      right: 104px;
+      z-index: 8999;
+      background: var(--bp-black);
+      color: #fff;
+      font-family: var(--font-main);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 8px 14px;
+      white-space: nowrap;
+      pointer-events: none;
+      opacity: 1;
+      transition: opacity 0.3s;
+    }
+    #av-tooltip::after {
+      content: '';
+      position: absolute;
+      right: -6px;
+      top: 50%;
+      transform: translateY(-50%);
+      border: 6px solid transparent;
+      border-right: none;
+      border-left-color: var(--bp-black);
+    }
+    #av-tooltip.hidden { opacity: 0; }
+
+    /* Avatar panel */
+    #av-panel {
+      position: fixed;
+      bottom: 104px;
+      right: 28px;
+      z-index: 8998;
+      width: 300px;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.28), 0 4px 16px rgba(0,0,0,0.14);
+      border: 1px solid rgba(0,163,181,0.3);
+      transform: scale(0.88) translateY(24px);
+      transform-origin: bottom right;
+      opacity: 0;
+      pointer-events: none;
+      transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), opacity 0.25s ease;
+    }
+    #av-panel.open {
+      transform: scale(1) translateY(0);
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    /* Panel header bar */
+    .av-header {
+      background: var(--bp-black);
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(0,163,181,0.2);
+    }
+    .av-header-left {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+    .av-status-dot {
+      width: 7px; height: 7px;
+      background: #00e5a0;
+      border-radius: 50%;
+      animation: ringPulse 2s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+    .av-header-label {
+      font-family: var(--font-cond);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #fff;
+    }
+    .av-header-sub {
+      font-size: 9px;
+      font-weight: 400;
+      letter-spacing: 1px;
+      color: rgba(255,255,255,0.4);
+      margin-top: 1px;
+    }
+    .av-close-btn {
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.45);
+      cursor: pointer;
+      font-size: 16px;
+      line-height: 1;
+      padding: 2px 4px;
+      transition: color 0.18s;
+    }
+    .av-close-btn:hover { color: #fff; }
+
+    /* The iframe wrapper — enforces 9:16 */
+    .av-iframe-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 9 / 16;
+      background: #000;
+      overflow: hidden;
+    }
+    .av-iframe-wrap iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+  </style>
+
+  <!-- Tooltip -->
+  <div id="av-tooltip">Talk to AI Advisor</div>
+
+  <!-- Launcher button -->
+  <button id="av-launcher" aria-label="Open AI Advisor" onclick="toggleAvatar()">
+    <!-- Open icon: microphone/avatar -->
+    <svg class="av-open-icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="14" cy="10" r="5" fill="none" stroke="#00a3b5" stroke-width="1.8"/>
+      <path d="M6 24c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="#00a3b5" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+      <circle cx="14" cy="10" r="2.5" fill="#00a3b5"/>
+    </svg>
+    <!-- Close icon: × -->
+    <svg class="av-close-icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="8" y1="8" x2="20" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+      <line x1="20" y1="8" x2="8" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+  </button>
+
+  <!-- Avatar panel -->
+  <div id="av-panel">
+    <div class="av-header">
+      <div class="av-header-left">
+        <div class="av-status-dot"></div>
+        <div>
+          <div class="av-header-label">Bose AI Advisor</div>
+          <div class="av-header-sub">Live · Ask me anything</div>
+        </div>
+      </div>
+      <button class="av-close-btn" onclick="toggleAvatar()" aria-label="Close">✕</button>
+    </div>
+    <div class="av-iframe-wrap">
+      <iframe
+        src="https://embed.liveavatar.com/v1/7204a3c1-0a33-4aed-9335-f0b2c1581ea6?orientation=vertical"
+        allow="microphone"
+        title="Bose Professional AI Advisor"
+      ></iframe>
+    </div>
+  </div>
+
+  <script>
+    var avOpen = false;
+    var tooltipHidden = false;
+
+    function toggleAvatar() {
+      avOpen = !avOpen;
+      document.getElementById('av-panel').classList.toggle('open', avOpen);
+      document.getElementById('av-launcher').classList.toggle('open', avOpen);
+      // Hide tooltip once interacted
+      if (!tooltipHidden) {
+        document.getElementById('av-tooltip').classList.add('hidden');
+        tooltipHidden = true;
+      }
+    }
+
+    // Auto-hide tooltip after 5s
+    setTimeout(function() {
+      if (!tooltipHidden) {
+        document.getElementById('av-tooltip').classList.add('hidden');
+        tooltipHidden = true;
+      }
+    }, 5000);
+  </script>
 
 </body>
 </html>
